@@ -13,6 +13,7 @@ class BugsChart(models.Model):
     artist = models.CharField(max_length=100)
     album = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = '벅스뮤직'
