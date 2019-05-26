@@ -6,11 +6,11 @@ from .models import BugsChart
 
 @admin.register(BugsChart)
 class BugsAdmin(admin.ModelAdmin):
-    list_display = ['ranking', 'photo_tag', 'title', 'artist', 'album', 'created_at']
+    list_display = ['ranking', 'photo_tag', 'title', 'artist', 'album', 'created_at', 'active']
 
     list_display_links = ['title', 'artist']
 
-    readonly_fields = ['ranking', 'photo_tag', 'title', 'artist', 'album']
+    readonly_fields = ['ranking', 'photo_tag', 'title', 'artist', 'album', 'active']
 
     def photo_tag(self, item):
         if item.image_file:
