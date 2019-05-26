@@ -36,6 +36,8 @@ AUTH_USER_MODEL = 'members.User'
 # Application definition
 
 INSTALLED_APPS = [
+    'django_crontab',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,6 +58,17 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# 크론탭 작업 시간 설정(비동기 스케줄링 처리를 위해 다른 작업 때문에 주석 처리(이후에 주석 해제 예정)
+# CRONJOBS = [
+#     ('*/5 * * * *', 'app.cron.my_cron_job'),
+#
+#     ('0   0 1 * *', 'app.cron.my_cron_job', '>> /tmp/music_chart/scheduled_job.log'),
+#
+# ]
+
+# settings.py 패키지하면 환경변수를 아래와 같이 설정해줘야 함
+# crontab_django_settings_module='my_app.settings.local_settings
 
 ROOT_URLCONF = 'config.urls'
 
