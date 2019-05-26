@@ -1,9 +1,17 @@
-from django.http import HttpResponse
 from django.shortcuts import render
+from django.views.generic import TemplateView
+
+from .models import BugsChart
 
 
-def chart_list(request):
-    return HttpResponse(
-        '<h1>인덱스 페이지<h1>'
-        '또는'
-        '<h2>벅스뮤직 차트 리스트 페이지<h2>')
+class ChartListView(TemplateView):
+    template_name = 'posts/chart-list.html'
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['bugs_chart_list'] = BugsChart.objects.all().order_by('pk').filter(active=True)
+
+        return context_data
+
+
+chart_list = ChartListView.as_view()

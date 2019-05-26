@@ -1,0 +1,31 @@
+{% include 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="justify-content-center">
+            <div class="col-10 col-sm-10 col-md-10 col-lg-10">
+                <table class="table table-hover">
+                    <thead class="table-info">
+                    <tr>
+                        <th>랭킹</th>
+                        <th>가수</th>
+                        <th>제목</th>
+                        <th colspan="2">앨범</th>
+                    </tr>
+                    </thead>
+                    {% for chart in bugs_chart_list %}
+                        <tbody>
+                        <tr>
+                            <td>{{ chart.ranking }}</td>
+                            <td>{{ chart.artist }}</td>
+                            <td>{{ chart.title }}</td>
+                            <td>{{ chart.album }}</td>
+                            <td><img src="{{ chart.image_file.url }}" alt="이미지 파일"></td>
+                        </tr>
+                        </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
