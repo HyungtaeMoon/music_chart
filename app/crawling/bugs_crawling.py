@@ -65,7 +65,5 @@ def get_ranking_chart():
     print('크롤링 완료!!!!')
 
 
-
-# if __name__ == "__main__":
-    # a = get_url()
-    # get_ranking_chart(a)
+if __name__ == "__main__":
+    get_ranking_chart()

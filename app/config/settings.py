@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'members',
     'posts',
     'utils',
+    'crawling',
 ]
 
 MIDDLEWARE = [

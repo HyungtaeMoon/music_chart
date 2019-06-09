@@ -1,13 +1,15 @@
 from __future__ import absolute_import
 
+from celery import shared_task
 
-from config.celery import app
+from crawling.bugs_crawling import get_ranking_chart
 
 
-# worker 에서 say_hello 함수가 실행
-@app.task
-def say_hello():
-    print('안녕하세요')
+@shared_task
+def task_for_crawling():
+    # print('hello')
+    get_ranking_chart()
+
 
 # Command
 #   redis-server

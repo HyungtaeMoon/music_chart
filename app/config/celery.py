@@ -24,7 +24,7 @@ app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
     'add-every-minute-crontab': {
-        'task': 'utils.tasks.say_hello',
+        'task': 'utils.tasks.task_for_crawling',
         'schedule': crontab(),  # 1분마다
         'args': (),
     },
