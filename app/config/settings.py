@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from celery.schedules import crontab
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROOT_DIR = os.path.dirname(BASE_DIR)
 
@@ -37,6 +39,7 @@ AUTH_USER_MODEL = 'members.User'
 
 INSTALLED_APPS = [
     'django_crontab',
+    'django_celery_beat',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -47,6 +50,7 @@ INSTALLED_APPS = [
 
     'members',
     'posts',
+    'utils',
 ]
 
 MIDDLEWARE = [
@@ -59,16 +63,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# 크론탭 작업 시간 설정(비동기 스케줄링 처리를 위해 다른 작업 때문에 주석 처리(이후에 주석 해제 예정)
-# CRONJOBS = [
-#     ('*/5 * * * *', 'app.cron.my_cron_job'),
-#
-#     ('0   0 1 * *', 'app.cron.my_cron_job', '>> /tmp/music_chart/scheduled_job.log'),
-#
-# ]
-
-# settings.py 패키지하면 환경변수를 아래와 같이 설정해줘야 함
-# crontab_django_settings_module='my_app.settings.local_settings
 
 ROOT_URLCONF = 'config.urls'
 
@@ -91,6 +85,20 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
+
+# 셀러리 설정
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Seoul'
+
+# 브로커 설정
+BROKER_URL = 'redis://localhost:6379/0'
+BACKEND_URL = 'redis://localhost:6379/1'
 
 
 # Database
