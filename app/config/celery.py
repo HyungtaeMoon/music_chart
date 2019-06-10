@@ -6,7 +6,7 @@ from celery.schedules import crontab
 
 
 # Django 의 세팅 모듈을 Celery 의 기본으로 사용하도록 등록
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.local')
 
 # app 인스턴스 객체 생성
 app = Celery(
