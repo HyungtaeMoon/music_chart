@@ -5,11 +5,16 @@ name = "pypi"
 
 [packages]
 django = "*"
-notebook = "*"
 requests = "*"
 "beautifulsoup4" = "*"
 lxml = "*"
 pillow = "*"
+django-crontab = "*"
+django-redis = "*"
+celery = {extras = ["redis"], version = "*"}
+django-celery-beat = "*"
+flower = "*"
+redis = "*"
 
 [dev-packages]
 
