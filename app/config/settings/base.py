@@ -147,9 +147,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
-
 # Static
 STATIC_URL = '/static/'
 # collectstatic 을 하면 모이게 되는 루트 경로
