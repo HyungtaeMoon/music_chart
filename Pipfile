@@ -15,8 +15,10 @@ celery = {extras = ["redis"], version = "*"}
 django-celery-beat = "*"
 flower = "*"
 redis = "*"
+awscli = "*"
 
 [dev-packages]
+awscli = "*"
 
 [requires]
 python_version = "3.6"
