@@ -1,5 +1,7 @@
 import sys
 
+import requests
+
 from .base import *
 
 # secrets = json.load(open(os.path.join(SECRETS_DIR, 'production.json')))
@@ -12,10 +14,22 @@ DEBUG = False
 # runserver 로 production 환경을 실행할 경우
 if RUNSERVER:
     DEBUG = True
-    ALLOWED_HOSTS = [
-        'localhost',
-        '127.0.0.1',
-    ]
+    # ALLOWED_HOSTS = [
+    #     'localhost',
+    #     '127.0.0.1',
+    # ]
+
+# 아마존에서 제공해주는 URL에 접속을 허용하는 코드
+ALLOWED_HOSTS = [
+    '.amazonaws.com',
+]
+
+# Health Check 도메인을 허용하는 코드
+try:
+    EC2_IP = requests.get('http://169.254.169.254/latest/meta-data/local-ipv4').text
+    ALLOWED_HOSTS.append(EC2_IP)
+except requests.exceptions.RequestException:
+    pass
 
 WSGI_APPLICATION = 'config.wsgi.production.application'
 
