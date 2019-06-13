@@ -4,7 +4,7 @@ import requests
 
 from .base import *
 
-# secrets = json.load(open(os.path.join(SECRETS_DIR, 'production.json')))
+secrets = json.load(open(os.path.join(SECRETS_DIR, 'production.json')))
 
 # Django 가 runserver 로 켜졌는지 확인
 RUNSERVER = 'runserver' in sys.argv
@@ -38,7 +38,7 @@ WSGI_APPLICATION = 'config.wsgi.production.application'
 # ]
 
 # DB
-# DATABASES = secrets['DATABASES']
+DATABASES = secrets['DATABASES']
 
 # Log
 # LOG_DIR = '/var/log/django'

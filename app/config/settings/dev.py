@@ -1,6 +1,6 @@
 from .base import *
 
-# secrets = json.load(open(os.path.join(SECRETS_DIR, 'dev.json')))
+secrets = json.load(open(os.path.join(SECRETS_DIR, 'dev.json')))
 
 DEBUG = True
 
@@ -8,7 +8,7 @@ DEBUG = True
 WSGI_APPLICATION = 'config.wsgi.dev.application'
 
 # DB
-# DATABASES = secrets['DATABASES']
+DATABASES = secrets['DATABASES']
 
 
 # django-storages
