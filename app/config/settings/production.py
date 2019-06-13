@@ -7,13 +7,13 @@ from .base import *
 secrets = json.load(open(os.path.join(SECRETS_DIR, 'production.json')))
 
 # Django 가 runserver 로 켜졌는지 확인
-RUNSERVER = 'runserver' in sys.argv
-DEBUG = False
+# RUNSERVER = 'runserver' in sys.argv
+# DEBUG = False
 # ALLOWED_HOSTS = secrets['ALLOWED_HOSTS']
 
 # runserver 로 production 환경을 실행할 경우
-if RUNSERVER:
-    DEBUG = True
+# if RUNSERVER:
+#     DEBUG = True
     # ALLOWED_HOSTS = [
     #     'localhost',
     #     '127.0.0.1',
