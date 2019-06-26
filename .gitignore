@@ -8,6 +8,7 @@ secrets.tar
 # Django Static files path
 /.static
 /.media
+app/static
 
 ### Django ###
 *.log

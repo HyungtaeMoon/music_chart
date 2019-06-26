@@ -26,3 +26,9 @@ WSGI_APPLICATION = 'config.wsgi.production.application'
 
 # DB
 DATABASES = secrets['DATABASES']
+
+# AWS SNS
+EMAIL_HOST = secrets['EMAIL_HOST']
+EMAIL_HOST_USER = secrets['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = secrets['EMAIL_HOST_PASSWORD']
+EMAIL_PORT = secrets['EMAIL_PORT']
