@@ -17,6 +17,7 @@ flower = "*"
 redis = "*"
 awscli = "*"
 "psycopg2-binary" = "*"
+djangorestframework = "*"
 
 [dev-packages]
 awscli = "*"
