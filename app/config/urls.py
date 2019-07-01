@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(pattern_name='posts:bugs-list'), name='index'),
     path('members/', include('members.urls')),
-    path('posts/', include('posts.urls')),
+    path('posts/', include('posts.urls.views')),
 
 ]
 urlpatterns += static(prefix=settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -41,6 +41,7 @@ AUTH_USER_MODEL = 'members.User'
 INSTALLED_APPS = [
     'django_crontab',
     'django_celery_beat',
+    'rest_framework',
 
     'django.contrib.admin',
     'django.contrib.auth',
